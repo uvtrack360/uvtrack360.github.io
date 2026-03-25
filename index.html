@@ -1,126 +1,295 @@
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>UVTrack360</title>
-<link href="./js_files/style.css" rel="stylesheet">
-<script type="text/javascript" src="./js_files/jquery.mlens-1.0.min.js"></script> 
-<script type="text/javascript" src="./js_files/jquery.js"></script>
-<script type="text/javascript" src="./js_files/video-comparison.js"></script>
-<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.0.1/model-viewer.min.js"></script>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<meta charset="utf-8">
-<link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
-<link rel="icon" type="image/png" href="favicon.png">
-<link rel="manifest" href="/site.webmanifest">
+        <meta
+            name="title"
+            content="UVTrack360: UWB-aided Tracking in 360 Videos with Open-Vocabulary Descriptions"
+        />
+        <meta
+            name="description"
+            content="Project page for UVTrack360, a UWB-aided approach for target tracking and localization in 360 videos under challenging conditions including low light."
+        />
+        <meta
+            name="keywords"
+            content="UWB, 360 video, tracking, localization, open-vocabulary, computer vision"
+        />
+        <meta name="author" content="" />
+        <meta name="robots" content="index, follow" />
+        <meta name="language" content="English" />
 
-<style>
-  * {
-    box-sizing: border-box;
-  }
-  
-  #video-compare-container {
-	display: inline-block;
-	line-height: 0;
-	position: relative;
-	width: 100%;
-	padding-top: 42.3%;
-}
-#video-compare-container > video {
-	width: 100%;
-	position: absolute;
-	top: 0;
-	height: 100%;
-}
-#video-clipper {
-	width: 50%;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	overflow: hidden;
-}
-#video-clipper video {
-	width: 200%;
-	position: absolute;
-	height: 100%;
-}
-  .column {
-    float: left;
-    width: 20%;
-    padding: 5px;
-  }
+        <meta property="og:type" content="article" />
+        <meta property="og:site_name" content="UVTrack360 Project Page" />
+        <meta
+            property="og:title"
+            content="UVTrack360: UWB-aided Tracking in 360 Videos with Open-Vocabulary Descriptions"
+        />
+        <meta
+            property="og:description"
+            content="UWB-aided target tracking and localization in 360 videos with open-vocabulary descriptions."
+        />
+        <meta property="og:url" content="https://uvtrack360.github.io/" />
+        <meta
+            property="og:image"
+            content="https://uvtrack360.github.io/static/images/social_preview.png"
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="UVTrack360 project preview" />
 
-  .colum4 {
-    float: left;
-    width: 25%;
-    padding: 5px;
-  }
-  
-  /* Clearfix (clear floats) */
-  .row::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
-  </style>
- <style>
-  .grid {
-   display: flex;
-   flex-direction: row;
-   padding: 5px;
-   align-content: center;
-   /* flex-wrap: wrap; */
-  }
-  .grid > div {
-   flex-grow: 1;
-   flex-shrink: 1;
-   padding: 5px;
-   
-  }
-  .center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-}
-html {
-  scroll-behavior: smooth;
-}
-  </style>
-</head>
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+            name="twitter:title"
+            content="UVTrack360: UWB-aided Tracking in 360 Videos with Open-Vocabulary Descriptions"
+        />
+        <meta
+            name="twitter:description"
+            content="UWB-aided target tracking and localization in 360 videos with open-vocabulary descriptions."
+        />
+        <meta
+            name="twitter:image"
+            content="https://uvtrack360.github.io/static/images/social_preview.png"
+        />
 
-<body>
-<div class="content">
-  <h1 style="font-size: 30"><strong>UVTrack360: UWB-aided Tracking in 360° Videos<br>with Open-Vocabulary Descriptions</strong></h1>
-  <br>
-  <img src="media_files/headerfig.png" style="width:80%; display: block; margin: auto;"><br>
-  <h3 style="text-align:center"><em>UVTrack360 is able to track and localize a target individual in varying light conditions.
-  </em></h3>
-    <font size="+2">
-          <p style="text-align: center;">
-            <a href="#demo-videos">[Demo Videos]</a> &nbsp;&nbsp;&nbsp;&nbsp;
-          </p>
-    </font>
-</div>
-<div class="content">
-  <h2 style="text-align:center;">Abstract</h2>
-  <p>Computer vision based techniques are frequently used to locate a subject of interest in a video, so that video feature enhancements, blurring, and directional microphone-based audio capture can be enabled. This has applications in film-making, security, and privacy. The subject's actual location in the video feed is also important for audio post-processing, say in Dolby Atmos, where dubbed audio is associated with the subject's movements for realistic spatial audio. Detecting where a subject is in a video feed is nontrivial because the lens field of view must be mapped to the 3D space, the subject needs to be identified (potentially using open-vocabulary descriptions of the person), sometimes from several other subjects, and then tracked continuously, even if the subject might be occluded in some frames by other objects. In this paper, we ask: can the subject wear a wireless localization tag to simplify the task? We observe that the accuracy of subject localization in the video feed improves, the subject can be located even in cases where computer vision would fail (low-light conditions), and the compute time required to find the subject in the frame reduces, thereby reducing the detection latency of tracking using video alone.</p>
-</div>
+        <meta name="theme-color" content="#2563eb" />
+        <meta name="msapplication-TileColor" content="#2563eb" />
 
-<div class="content">
-  <a id="demo-videos"><h2>Demo Videos</h2></a>
-  <br>
-  <video style="width: 100%" controls>
-    <source src="./media_files/S0013_SS4.mp4" type="video/mp4"> 
-  </video>
-  <p style="text-align:center;">Tracking system in ideal light conditions.</p>
-  <br>
-  <video style="width: 100%" controls>
-    <source src="./media_files/pitchdark-vid1.mp4" type="video/mp4"> 
-  </video>
-  <p style="text-align:center;">Tracking system in pitch dark conditions.</p>
-</div>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-</body>
+        <title>UVTrack360</title>
+
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="static/images/favicon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="static/images/favicon.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="static/images/favicon.png"
+        />
+        <link rel="icon" type="image/png" href="static/images/favicon.png" />
+
+        <link rel="stylesheet" href="static/css/bulma.min.css" />
+        <link rel="stylesheet" href="static/css/index.css" />
+        <link
+            rel="preload"
+            href="static/css/bulma-carousel.min.css"
+            as="style"
+            onload="
+                this.onload = null;
+                this.rel = 'stylesheet';
+            "
+        />
+        <link
+            rel="preload"
+            href="static/css/bulma-slider.min.css"
+            as="style"
+            onload="
+                this.onload = null;
+                this.rel = 'stylesheet';
+            "
+        />
+        <link
+            rel="preload"
+            href="static/css/fontawesome.all.min.css"
+            as="style"
+            onload="
+                this.onload = null;
+                this.rel = 'stylesheet';
+            "
+        />
+
+        <noscript>
+            <link rel="stylesheet" href="static/css/bulma-carousel.min.css" />
+            <link rel="stylesheet" href="static/css/bulma-slider.min.css" />
+            <link rel="stylesheet" href="static/css/fontawesome.all.min.css" />
+        </noscript>
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+            rel="stylesheet"
+        />
+
+        <script
+            defer
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+        ></script>
+        <script defer src="static/js/fontawesome.all.min.js"></script>
+        <script defer src="static/js/bulma-carousel.min.js"></script>
+        <script defer src="static/js/bulma-slider.min.js"></script>
+        <script defer src="static/js/index.js"></script>
+    </head>
+    <body>
+        <button
+            class="scroll-to-top"
+            onclick="scrollToTop()"
+            title="Scroll to top"
+            aria-label="Scroll to top"
+        >
+            <i class="fas fa-chevron-up"></i>
+        </button>
+
+        <main id="main-content">
+            <section class="hero">
+                <div class="hero-body">
+                    <div class="container is-max-desktop">
+                        <div class="columns is-centered">
+                            <div class="column has-text-centered">
+                                <h1 class="title is-1 publication-title">
+                                    UVTrack360: UWB-aided Tracking in 360 Videos
+                                    with Open-Vocabulary Descriptions
+                                </h1>
+                                <div class="is-size-5 publication-authors">
+                                    <!--<span class="author-block">Anonymous Submission</span>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="hero teaser">
+                <div class="container is-max-desktop">
+                    <div class="hero-body">
+                        <img
+                            src="static/images/headerfig.png"
+                            alt="UVTrack360 overview"
+                            loading="eager"
+                        />
+                        <h2 class="subtitle has-text-centered">
+                            UVTrack360 tracks and localizes a target individual
+                            in 360 video scenes, including challenging low-light
+                            environments.
+                        </h2>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section hero is-light">
+                <div class="container is-max-desktop">
+                    <div class="columns is-centered has-text-centered">
+                        <div class="column is-four-fifths">
+                            <h2 class="title is-3">Abstract</h2>
+                            <div class="content has-text-justified">
+                                <p>
+                                    Computer vision based techniques are
+                                    frequently used to locate a subject of
+                                    interest in a video, so that video feature
+                                    enhancements, blurring, and directional
+                                    microphone-based audio capture can be
+                                    enabled. This has applications in
+                                    film-making, security, and privacy. The
+                                    subject's actual location in the video feed
+                                    is also important for audio post-processing,
+                                    say in Dolby Atmos, where dubbed audio is
+                                    associated with the subject's movements for
+                                    realistic spatial audio. Detecting where a
+                                    subject is in a video feed is nontrivial
+                                    because the lens field of view must be
+                                    mapped to the 3D space, the subject needs to
+                                    be identified (potentially using
+                                    open-vocabulary descriptions of the person),
+                                    sometimes from several other subjects, and
+                                    then tracked continuously, even if the
+                                    subject might be occluded in some frames by
+                                    other objects. In this paper, we ask: can
+                                    the subject wear a wireless localization tag
+                                    to simplify the task? We observe that the
+                                    accuracy of subject localization in the
+                                    video feed improves, the subject can be
+                                    located even in cases where computer vision
+                                    would fail (low-light conditions), and the
+                                    compute time required to find the subject in
+                                    the frame reduces, thereby reducing the
+                                    detection latency of tracking using video
+                                    alone.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="container is-max-desktop">
+                    <h2 class="title is-3 has-text-centered">Demo Videos</h2>
+                    <div class="columns is-variable is-5">
+                        <div class="column">
+                            <video
+                                controls
+                                preload="metadata"
+                                style="width: 100%"
+                            >
+                                <source
+                                    src="static/videos/demo_ideal_light.mp4"
+                                    type="video/mp4"
+                                />
+                            </video>
+                            <p
+                                class="subtitle has-text-centered"
+                                style="margin-top: 0.75rem"
+                            >
+                                Tracking in ideal lighting conditions.
+                            </p>
+                        </div>
+                        <div class="column">
+                            <video
+                                controls
+                                preload="metadata"
+                                style="width: 100%"
+                            >
+                                <source
+                                    src="static/videos/demo_pitch_dark.mp4"
+                                    type="video/mp4"
+                                />
+                            </video>
+                            <p
+                                class="subtitle has-text-centered"
+                                style="margin-top: 0.75rem"
+                            >
+                                Tracking in pitch-dark conditions.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="columns is-centered">
+                    <div class="column is-8">
+                        <div class="content">
+                            <p>
+                                This page was built using the
+                                <a
+                                    href="https://github.com/eliahuhorwitz/Academic-project-page-template"
+                                    target="_blank"
+                                    >Academic Project Page Template</a
+                                >
+                                which was adopted from the
+                                <a
+                                    href="https://nerfies.github.io"
+                                    target="_blank"
+                                    >Nerfies</a
+                                >
+                                project page.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
 </html>
