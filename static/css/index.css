@@ -151,6 +151,20 @@ body {
     margin-bottom: 1.5rem;
 }
 
+.publication-authors-main {
+  font-size: clamp(1.2rem, 1.55vw, 1.45rem) !important;
+  margin-bottom: 0.18rem;
+  color: #273043;
+  font-weight: 500;
+}
+
+.publication-affiliation-main {
+  font-size: clamp(1.2rem, 1.55vw, 1.45rem);
+  color: #4b4f55;
+  font-weight: 500;
+  margin-bottom: 0.8rem;
+}
+
 .publication-venue {
     color: var(--text-secondary);
     width: fit-content;
@@ -416,6 +430,12 @@ code {
 
 .copy-bibtex-btn.copied .copy-text::after {
   content: "ied!";
+}
+
+.is-disabled-link {
+  pointer-events: none;
+  opacity: 0.55;
+  filter: grayscale(0.2);
 }
 
 /* Scroll to Top Button */
@@ -748,6 +768,4 @@ a:focus {
     box-shadow: none !important;
   }
 }
-
-
 
